@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -48,7 +46,7 @@ class ReviewPage {
     );
 
     String promptContext =
-        "Please provide a concise summary of the following meeting transcription. The summary should capture the key points in each respective language, highlighting the most significant themes discussed. Additionally, extract and list the 5 most important keywords or phrases from the text, based on their relevance and impact on the discussion. ";
+        "Please provide a concise summary of the following meeting transcription. The summary should capture the key points in each respective language (e.g, if the summary is in Indonesian language, generate in indonesian), highlighting the most significant themes discussed. Additionally, extract and list the 5 most important keywords or phrases from the text, based on their relevance and impact on the discussion. the summary: ";
     String prompt = promptContext + transcript;
 
     try {
