@@ -115,12 +115,6 @@ class ReviewPage {
         summary.contains(transcript)); // Find and remove the transcript
     await prefs.setStringList('meeting_summaries', summaries);
 
-    // Delete the audio file
-    final audioFile = File(audioFilePath);
-    if (await audioFile.exists()) {
-      await audioFile.delete();
-    }
-
     // Show a snackbar to inform the user that the file is deleted
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Transcript and audio file deleted!')),
