@@ -1,4 +1,17 @@
 pluginManagement {
+        buildscript {
+        repositories {
+            mavenCentral()
+            maven {
+                // r8 maven
+                url = uri("https://storage.googleapis.com/r8-releases/raw")
+            }
+        }
+        dependencies {
+            // r8 version
+            classpath("com.android.tools:r8:8.2.16-dev")
+        }
+    }
     def flutterSdkPath = {
         def properties = new Properties()
         file("local.properties").withInputStream { properties.load(it) }
@@ -8,6 +21,7 @@ pluginManagement {
     }()
 
     includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
+
 
     repositories {
         google()
@@ -19,7 +33,6 @@ pluginManagement {
 plugins {
     id "dev.flutter.flutter-plugin-loader" version "1.0.0"
     id "com.android.application" version "7.3.0" apply false
-    id "org.jetbrains.kotlin.android" version "1.7.10" apply false
 }
 
 include ":app"
