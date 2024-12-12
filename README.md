@@ -1,7 +1,5 @@
 # notulenize
 
-A Mobile App for summarizing your meeting audio
-
 ## How to run
 
 ```bash
