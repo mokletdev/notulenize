@@ -25,7 +25,8 @@ flutter run
 Technologies used in the project:
 
 - Flutter
-- Firebase
+- Flutter Audio
+- OpenAI API
 
 <h2>Authors:</h2>
 
