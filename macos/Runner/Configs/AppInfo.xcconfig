@@ -8,7 +8,7 @@
 PRODUCT_NAME = notulenize
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.notulenize
+PRODUCT_BUNDLE_IDENTIFIER = com.mokletdev.notulenize
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2024 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 com.mokletdev. All rights reserved.
