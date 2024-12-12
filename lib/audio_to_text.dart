@@ -154,12 +154,19 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
       final transcriptionFilePath = '$filePath.transcription.txt';
       final transcriptionFile = File(transcriptionFilePath);
 
-      // If transcription does not exist, generate it using Whisper
-      final transcript = await OpenAI.instance.audio.createTranscription(
+      // Set the timeout duration (e.g., 60 seconds)
+      const timeoutDuration = Duration(seconds: 300);
+
+      // Try to get the transcription with a timeout
+      final transcript = await OpenAI.instance.audio
+          .createTranscription(
         file: audioFile,
         model: 'whisper-1',
         responseFormat: OpenAIAudioResponseFormat.text,
-      );
+      )
+          .timeout(timeoutDuration, onTimeout: () {
+        throw TimeoutException('Transcription request timed out');
+      });
 
       // Save transcription to a file for future use
       await transcriptionFile.writeAsString(transcript.toString());
@@ -167,8 +174,21 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
       // Hide the loading snackbar by calling ScaffoldMessenger.clearSnackBars
       ScaffoldMessenger.of(context).clearSnackBars();
 
-      return transcript.toString();
+      // Use regex to extract the text (if needed)
+      // RegExp regExp = RegExp(r'text: ([^,]+)task:');
 
+      // var textOnly = regExp.firstMatch(transcript.toString());
+
+      // if (textOnly != null) {
+      //   String matchString = textOnly.group(1)!; // 'texts'
+      //   print(matchString); // prints 'texts'
+      //   return matchString; // Return the extracted text as a string
+      // } else {
+      //   print("No match found");
+      //   return ""; // Return an empty string if no match found
+      // }
+      print("trancript but raw: " + transcript.text);
+      return transcript.text;
     } catch (e) {
       print("Error: $e");
 
