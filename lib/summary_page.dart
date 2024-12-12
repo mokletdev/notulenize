@@ -145,6 +145,10 @@ class _SummaryPageState extends State<SummaryPage> {
                           IconButton(
                             onPressed: () {
                               setState(() {
+                                _meetingTitles = [];
+                                _meetingDates = [];
+                                _transcriptions = [];
+                                _summaries = [];
                                 _loadDataFuture = _loadData();
                               });
                             },
