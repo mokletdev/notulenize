@@ -1,6 +1,8 @@
-# notulenize
+!! This Project was Built to be presented at Expo Expose Jatim !!
 
-A Mobile App for summarizing your meeting audio
+# Notulenize
+
+Notulenize is a mobile-based application built with Flutter to help you and your team summarize your meetings using AI technology. Notulenize also stores the meeting summary results locally so that your data is safe and reduce the data-leak risk. You can also pre-record your meeting's audio note and give it to Notulenize for it to summarize the audio note.
 
 ## How to run
 
@@ -14,6 +16,13 @@ Install dependencies
 flutter pub get
 ```
 
+Initialize API key
+
+`.env`
+```bash
+API_KEY = "Your API key"
+```
+
 Run the app
 
 ```bash
@@ -25,8 +34,14 @@ flutter run
 Technologies used in the project:
 
 - Flutter
-- Firebase
+- Flutter Audio
+- OpenAI's GPT3.5 Instruct Model
+- OpenAI's Whisper-1
+- Figma
+- Flutter Shared Preferences
 
 <h2>Authors:</h2>
 
-- Cleine Pradita
+- [Cleine Pradita (Main Developer)](https://github.com/devdit) 
+- [Arsyad Ali Mahardika (UI/UX Designer)](https://github.com/arsyadam)
+- [Ahsan Awadullah Azizan (README Editor)](https://github.com/ahsanzizan)
