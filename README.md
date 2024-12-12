@@ -14,6 +14,13 @@ Install dependencies
 flutter pub get
 ```
 
+Initialize API key
+
+`.env`
+```bash
+API_KEY = "Your API key"
+```
+
 Run the app
 
 ```bash
