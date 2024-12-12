@@ -42,6 +42,6 @@ Technologies used in the project:
 
 <h2>Authors:</h2>
 
-- Cleine Pradita (Main Developer)
-- Arsyad Ali Mahardika (UI/UX Designer)
-- Ahsan Azizan (README Editor)
+- [Cleine Pradita (Main Developer)](https://github.com/devdit) 
+- [Arsyad Ali Mahardika (UI/UX Designer)](https://github.com/arsyadam)
+- [Ahsan Awadullah Azizan (README Editor)](https://github.com/ahsanzizan)
