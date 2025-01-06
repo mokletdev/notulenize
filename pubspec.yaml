@@ -1,7 +1,7 @@
 name: notulenize
 description: "A Mobile App for summarizing your meeting audio"
 publish_to: "none"
-version: 0.1.0
+version: 0.1.2
 
 environment:
   sdk: ^3.5.1
