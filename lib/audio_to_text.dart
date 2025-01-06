@@ -71,20 +71,17 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
         _elapsedSeconds++;
       });
     });
-    print("ayam sayur:" + _hasRecorded.toString());
     if (_hasRecorded == false) {
       setState(() {
         _hasRecorded = true;
       });
       final directory = await getExternalStorageDirectory();
-      print("Bayu cihuy: " + directory.toString());
 
       await _record.start(
         const RecordConfig(),
         path:
             '${directory?.path}/${_titleController.text}_${DateTime.now()}.wav',
       );
-      print("Yayayayaya");
     } else {
       _record.resume();
     }
@@ -136,17 +133,16 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
         return null;
       }
 
-      // Show loading snackbar
       final snackBar = SnackBar(
         content: const Row(
           children: [
-            CircularProgressIndicator(), // Shows the loading spinner
+            CircularProgressIndicator(),
             SizedBox(width: 10),
             Text("Transcribing..."),
           ],
         ),
         duration: Duration(
-            days: 1), // Keep the snackbar visible until the task completes
+            days: 1),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
@@ -174,7 +170,6 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
       // Hide the loading snackbar by calling ScaffoldMessenger.clearSnackBars
       ScaffoldMessenger.of(context).clearSnackBars();
 
-      print("trancript but raw: " + transcript.text);
       return transcript.text;
     } catch (e) {
       print("Error: $e");
@@ -193,13 +188,10 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
       recordingPath = (await _record.stop())!;
     }
 
-    // Step 1: Get the transcription
-    print("Raja jawa " + recordingPath);
     String? transcript = await makeTranscription(context, recordingPath);
 
     if (transcript != null) {
       // Step 2: Generate summary from the transcription
-      print("Transcript: " + transcript);
 
       // Step 3: Navigate to the ReviewPage with the summary
       showModalBottomSheet(
@@ -245,11 +237,9 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
     if (shouldDelete == true) {
       try {
         // Get the recording path
-        String? path = await _record
-            .stop(); // Ensure the stop method gives the recording path
+        String? path = await _record.stop(); // Ensure the stop method gives the recording path
         if (path != null) {
           final audioFile = File(path);
-          print("Woyoyoyo " + audioFile.toString());
 
           // Check if the recording file exists and delete it
           if (await audioFile.exists()) {
