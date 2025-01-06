@@ -129,7 +129,9 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
     try {
       final audioFile = File(filePath);
       if (!await audioFile.exists()) {
-        print("Audio file not found!");
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Audio file not found!')),
+          );
         return null;
       }
 
@@ -172,7 +174,9 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
 
       return transcript.text;
     } catch (e) {
-      print("Error: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error $e')),
+          );
 
       // Hide the loading snackbar in case of error
       ScaffoldMessenger.of(context).clearSnackBars();
@@ -184,7 +188,9 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
   Future<void> _handleTranscriptionAndSummary(
       {String recordingPath = ''}) async {
     if (recordingPath.isEmpty) {
-      print("Recording path is empty");
+      ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Recording path is empty')),
+          );
       recordingPath = (await _record.stop())!;
     }
 
@@ -203,7 +209,9 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
         },
       );
     } else {
-      print("No recording path found.");
+      ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('No recording path found')),
+          );
     }
   }
 
@@ -244,7 +252,6 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
           // Check if the recording file exists and delete it
           if (await audioFile.exists()) {
             await audioFile.delete();
-            print("Deletion success");
           }
 
           // Reset the state after deletion
@@ -255,7 +262,9 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
           );
         }
       } catch (e) {
-        print("Error deleting recording: $e");
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error deleting recording $e')),
+          );
       }
     }
   }
