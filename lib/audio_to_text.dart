@@ -66,7 +66,7 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
       _isRecording = true;
     });
 
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _elapsedSeconds++;
       });
@@ -135,8 +135,8 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
         return null;
       }
 
-      final snackBar = SnackBar(
-        content: const Row(
+      const snackBar = SnackBar(
+        content: Row(
           children: [
             CircularProgressIndicator(),
             SizedBox(width: 10),
@@ -330,7 +330,7 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
                 Image.asset('assets/images/underline.png'),
               ],
             ),
-            Container(
+            SizedBox(
               height: 400,
               child: Column(
                 children: [
@@ -444,7 +444,7 @@ class _AudioToTextPageState extends State<AudioToTextPage> {
                               color: primary400,
                             ),
                           ),
-                          SizedBox()
+                          const SizedBox()
                         ],
                       ),
                     )
