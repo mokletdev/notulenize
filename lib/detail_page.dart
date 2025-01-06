@@ -64,7 +64,6 @@ class _DetailPageState extends State<DetailPage> {
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () {
-              // Confirm before deleting the entry
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
@@ -75,14 +74,12 @@ class _DetailPageState extends State<DetailPage> {
                     actions: [
                       TextButton(
                         onPressed: () {
-                          // Cancel deletion
                           Navigator.of(context).pop();
                         },
                         child: const Text('Cancel'),
                       ),
                       TextButton(
                         onPressed: () {
-                          // Delete the entry and return to SummaryPage
                           _deleteEntry(context);
                           Navigator.of(context).pop();
                         },
@@ -97,7 +94,6 @@ class _DetailPageState extends State<DetailPage> {
         ],
       ),
       body: SingleChildScrollView(
-        // Wrap the body in SingleChildScrollView to avoid overflow
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -119,10 +115,7 @@ class _DetailPageState extends State<DetailPage> {
                     color: primary400),
               ),
               const SizedBox(height: 10),
-              // Display the formatted date
-
               const SizedBox(height: 20),
-              // Dropdown to toggle between Transcript and Summary
               DropdownButton<String>(
                 value: _selectedView,
                 onChanged: (String? newValue) {
@@ -154,7 +147,6 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
               const SizedBox(height: 20),
-              // Show either Transcript or Summary based on selection
               _selectedView == 'Transcript'
                   ? Text(
                       widget.transcription,
